@@ -63,4 +63,22 @@ class ProfileController extends Controller
         return \view('index');
 
     }
+
+    public function theme2()
+    {
+        return \view('admin.dashboard');
+
+    }
+
+    public function adminIndex()
+    {
+        return \view('admin.user.index');
+
+    }
+
+    public function radioChannels()
+    {
+        return \view('admin.user.index');
+
+    }
 }

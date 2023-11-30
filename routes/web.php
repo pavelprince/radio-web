@@ -23,10 +23,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/theme', [ProfileController::class, 'theme'])->name('profile.edit');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::get('/theme', [ProfileController::class, 'theme'])->name('profile.edit');
+Route::get('/theme2', [ProfileController::class, 'theme2'])->name('profile.edit');
+Route::get('/theme3', [ProfileController::class, 'adminIndex'])->name('profile.edit');
+Route::get('/radio-channels', [ProfileController::class, 'adminIndex'])->name('profile.edit');
 require __DIR__.'/auth.php';
