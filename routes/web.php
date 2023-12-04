@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AudioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,5 @@ Route::get('/radio-channels', [ProfileController::class, 'adminIndex'])->name('p
 require __DIR__.'/auth.php';
 
 Route::get('/listen', [ProfileController::class, 'listen'])->name('listen');
+
+Route::get('/stream-audio', [AudioController::class, 'streamAudio']);

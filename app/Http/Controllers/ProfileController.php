@@ -86,21 +86,28 @@ class ProfileController extends Controller
 
     public function listen()
     {
-            // $filename = base_path('resources/audio/'  . '.mp3');
-
             $filename = base_path('resources/audio/apa'  . '.mp3');
+
+            // // $filename = 'https://stream.radiojar.com/59g2c0ffy2hvv';
+            // $streamUrl = 'https://stream.radiojar.com/59g2c0ffy2hvv';
+    
             $filesize = (int) File::size($filename);
 
             $file = File::get($filename);
 
             $response = Response::make($file, 200);
             $response->header('Content-Type', 'audio/mpeg');
-            $response->header('Content-Length', $filesize);
+            $response->header('Content-Length', $filename);
             $response->header('Accept-Ranges', 'bytes');
-            $response->header('Content-Range', 'bytes 0-'.$filesize.'/'.$filesize);
+            $response->header('Content-Range', 'bytes 0-'.$filename.'/'.$filename);
 
+            dd($response);
             return $response;
+
+
+  
     }
+
 
 
 }
