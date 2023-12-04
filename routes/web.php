@@ -32,3 +32,5 @@ Route::get('/theme2', [ProfileController::class, 'theme2'])->name('profile.edit'
 Route::get('/theme3', [ProfileController::class, 'adminIndex'])->name('profile.edit');
 Route::get('/radio-channels', [ProfileController::class, 'adminIndex'])->name('profile.edit');
 require __DIR__.'/auth.php';
+
+Route::get('/listen', [ProfileController::class, 'listen'])->name('listen');

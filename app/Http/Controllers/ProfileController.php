@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 class ProfileController extends Controller
 {
     /**
@@ -81,4 +82,25 @@ class ProfileController extends Controller
         return \view('admin.user.index');
 
     }
+
+
+    public function listen()
+    {
+            // $filename = base_path('resources/audio/'  . '.mp3');
+
+            $filename = base_path('resources/audio/apa'  . '.mp3');
+            $filesize = (int) File::size($filename);
+
+            $file = File::get($filename);
+
+            $response = Response::make($file, 200);
+            $response->header('Content-Type', 'audio/mpeg');
+            $response->header('Content-Length', $filesize);
+            $response->header('Accept-Ranges', 'bytes');
+            $response->header('Content-Range', 'bytes 0-'.$filesize.'/'.$filesize);
+
+            return $response;
+    }
+
+
 }
