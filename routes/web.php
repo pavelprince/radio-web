@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RadioChannelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AudioController;
 
@@ -25,7 +26,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [ProfileController::class, 'theme'])->name('profile.edit');
+    Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('profile.edit');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -33,7 +34,12 @@ Route::middleware('auth')->group(function () {
 //Route::get('/theme', [ProfileController::class, 'theme'])->name('profile.edit');
 //Route::get('/theme2', [ProfileController::class, 'theme2'])->name('profile.edit');
 //Route::get('/theme3', [ProfileController::class, 'adminIndex'])->name('profile.edit');
-Route::get('/radio-channels', [ProfileController::class, 'adminIndex'])->name('profile.edit');
+
+Route::get('/radio-channel', [RadioChannelController::class, 'index'])->name('radio.channels');
+Route::get('/radio-channel/create', [RadioChannelController::class, 'create'])->name('radio.channel.create');
+Route::post('/radio-channel/store', [RadioChannelController::class, 'store'])->name('radio.channel.store');
+Route::get('/radio-channel/play', [RadioChannelController::class, 'play'])->name('radio.channel.play');
+
 require __DIR__.'/auth.php';
 
 Route::get('/listen', [ProfileController::class, 'listen'])->name('listen');

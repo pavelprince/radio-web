@@ -59,9 +59,10 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-    public function theme()
+    public function dashboard()
     {
-        return view('index');
+        $data['title'] = "Dashboard";
+        return \view('admin.dashboard')->with($data);
 
     }
 
@@ -90,7 +91,7 @@ class ProfileController extends Controller
 
             // // $filename = 'https://stream.radiojar.com/59g2c0ffy2hvv';
             // $streamUrl = 'https://stream.radiojar.com/59g2c0ffy2hvv';
-    
+
             $filesize = (int) File::size($filename);
 
             $file = File::get($filename);
@@ -105,7 +106,7 @@ class ProfileController extends Controller
             return $response;
 
 
-  
+
     }
 
 
