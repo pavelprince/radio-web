@@ -60,7 +60,7 @@ class ProfileController extends Controller
 
     public function theme()
     {
-        return \view('index');
+        return view('index');
 
     }
 }
