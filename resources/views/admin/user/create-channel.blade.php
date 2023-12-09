@@ -37,7 +37,7 @@
                             <div class="col-xl-12">
                                 <div class="form-group">
                                     <label>Channel Url *</label>
-                                    <input type="text" class="form-control form-control-solid form-control-lg" name="channel_url" placeholder="write something about this channel" value="{{old('channel_url', @$customer->details->refer_name)}}"/>
+                                    <input type="text" class="form-control form-control-solid form-control-lg" name="channel_url" placeholder="write channel url here" value="{{old('channel_url', @$customer->details->refer_name)}}"/>
                                     <span class="text-danger">{{ $errors->first('channel_url')}}</span>
                                     {{--                                                        <span class="form-text text-muted">Please enter customer name.</span>--}}
                                 </div>

@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/radio-channel', [RadioChannelController::class, 'index'])->name('radio.channels');
 Route::get('/radio-channel/create', [RadioChannelController::class, 'create'])->name('radio.channel.create');
 Route::post('/radio-channel/store', [RadioChannelController::class, 'store'])->name('radio.channel.store');
-Route::get('/radio-channel/play', [RadioChannelController::class, 'play'])->name('radio.channel.play');
+Route::get('/radio-play', [RadioChannelController::class, 'play'])->name('radio.channel.play');
 
 require __DIR__.'/auth.php';
 

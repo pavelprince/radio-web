@@ -6,12 +6,18 @@
             <h5 class="card-title">create new radio channel</h5>
         </div>
         <div class="card-body">
-            <div class="col-8 mx-auto">
-                <audio controls>
-                    <source src="https://stream.zeno.fm/umq9q5uuva5tv" type="audio/mpeg">
-                </audio>
-            </div>
-
+            @foreach($channels as $channel)
+                <div class="row border-bottom mt-2">
+                    <div class="col-md-6">
+                        <h5 class="card-title">{{ $channel->name }}</h5>
+                    </div>
+                    <div class="col-md-6 mx-auto">
+                        <audio controls>
+                            <source src="{{ url($channel->link) }}" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection
