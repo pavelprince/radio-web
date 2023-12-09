@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AudioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::get('/theme', [ProfileController::class, 'theme'])->name('profile.edit');
+Route::get('/theme2', [ProfileController::class, 'theme2'])->name('profile.edit');
+Route::get('/theme3', [ProfileController::class, 'adminIndex'])->name('profile.edit');
+Route::get('/radio-channels', [ProfileController::class, 'adminIndex'])->name('profile.edit');
 require __DIR__.'/auth.php';
+
+Route::get('/listen', [ProfileController::class, 'listen'])->name('listen');
+
+Route::get('/stream-audio', [AudioController::class, 'streamAudio']);
