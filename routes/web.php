@@ -40,6 +40,8 @@ Route::get('/radio-channel/create', [RadioChannelController::class, 'create'])->
 Route::post('/radio-channel/store', [RadioChannelController::class, 'store'])->name('radio.channel.store');
 Route::get('/radio-play', [RadioChannelController::class, 'play'])->name('radio.channel.play');
 
+Route::get('/ingest', [RadioChannelController::class, 'ingest'])->name('radio.ingest');
+
 require __DIR__.'/auth.php';
 
 Route::get('/listen', [ProfileController::class, 'listen'])->name('listen');
